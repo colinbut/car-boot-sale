@@ -32,9 +32,10 @@ public class ItemDaoImpl implements ItemDao {
 
     @Override
     public List<Item> getItems() {
-        return jdbcTemplate.query("select name, description, price from item",
+        return jdbcTemplate.query("select id, name, description, price from item",
             (resultSet, i) -> {
                 Item item = new Item();
+                item.setId(resultSet.getInt("id"));
                 item.setName(resultSet.getString("name"));
                 item.setDescription(resultSet.getString("description"));
                 item.setPrice(resultSet.getDouble("price"));
@@ -55,10 +56,11 @@ public class ItemDaoImpl implements ItemDao {
 
     @Override
     public Item getItem(int id) {
-        return jdbcTemplate.queryForObject("select name, description, price from item where id = ?",
+        return jdbcTemplate.queryForObject("select id, name, description, price from item where id = ?",
             new Object[] {1L},
             (resultSet, i) -> {
                 Item item = new Item();
+                item.setId(resultSet.getInt("id"));
                 item.setName(resultSet.getString("name"));
                 item.setDescription(resultSet.getString("description"));
                 item.setPrice(resultSet.getDouble("price"));
