@@ -27,7 +27,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void addItem(Item item) {
-        throw new UnsupportedOperationException("Not Yet Implemented!");
+        itemDao.addItem(item);
     }
 
     @Override

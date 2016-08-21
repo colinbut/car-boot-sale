@@ -27,7 +27,7 @@ public class ItemEndpoint {
     @Autowired
     private ItemService itemService;
 
-    @RequestMapping(path = "list/", method = RequestMethod.GET)
+    @RequestMapping(path = "/list", method = RequestMethod.GET)
     @ResponseBody
     public List<Item> getItems() {
         return itemService.listItems();
