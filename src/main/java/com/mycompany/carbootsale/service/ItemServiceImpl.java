@@ -8,17 +8,27 @@ package com.mycompany.carbootsale.service;
 import com.mycompany.carbootsale.db.dao.ItemDao;
 import com.mycompany.carbootsale.domain.Item;
 import com.mycompany.carbootsale.exception.ItemNotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Service
 public class ItemServiceImpl implements ItemService {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(ItemServiceImpl.class);
+
     @Autowired
     private ItemDao itemDao;
+
+    @PostConstruct
+    public void init() {
+        LOGGER.info("Initializing {}", this.getClass().getSimpleName());
+    }
 
     @Override
     public List<Item> listItems() {
