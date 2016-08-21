@@ -27,14 +27,7 @@ public class ItemDaoImpl implements ItemDao {
 
     @PostConstruct
     public void init() {
-        Item item = new Item();
-        item.setName("Jug");
-        item.setDescription("old jug that is very rusty");
-        item.setPrice(1.1);
-        addItem(item);
-
-        LOGGER.info("{}", getItems());
-
+        LOGGER.info("Initializing {}", this.getClass().getSimpleName());
     }
 
     @Override
