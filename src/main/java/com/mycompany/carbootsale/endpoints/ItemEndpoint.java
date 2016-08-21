@@ -33,7 +33,7 @@ public class ItemEndpoint {
         return itemService.listItems();
     }
 
-    @RequestMapping(path = "get/", method = RequestMethod.GET)
+    @RequestMapping(path = "/get", method = RequestMethod.GET)
     public ResponseEntity<Item> getItem(@RequestParam("id") int id) {
         Item item = null;
         try {
@@ -51,14 +51,12 @@ public class ItemEndpoint {
     }
 
     @RequestMapping(path = "/remove", method = RequestMethod.DELETE)
-    public Item removeItem(@RequestBody Item requestItem) {
-        Item item = null;
+    public void removeItem(@RequestParam("id") int id) {
         try {
-            item = itemService.removeItem(requestItem);
+            itemService.removeItem(id);
         } catch (ItemNotFoundException e) {
             e.printStackTrace();
         }
-        return item;
     }
 
 

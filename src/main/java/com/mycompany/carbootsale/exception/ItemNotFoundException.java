@@ -11,4 +11,8 @@ public class ItemNotFoundException extends Exception {
         super(message);
     }
 
+    public ItemNotFoundException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
 }

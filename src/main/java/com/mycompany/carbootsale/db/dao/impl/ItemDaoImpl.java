@@ -50,14 +50,14 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     @Override
-    public void deleteItem(Item item) {
-        jdbcTemplate.update("delete from item where id = ?", 1);
+    public void deleteItem(int id) {
+        jdbcTemplate.update("delete from item where id = ?", id);
     }
 
     @Override
     public Item getItem(int id) {
         return jdbcTemplate.queryForObject("select id, name, description, price from item where id = ?",
-            new Object[] {1L},
+            new Object[] {id},
             (resultSet, i) -> {
                 Item item = new Item();
                 item.setId(resultSet.getInt("id"));

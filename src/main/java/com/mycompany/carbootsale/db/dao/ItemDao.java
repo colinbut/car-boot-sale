@@ -7,6 +7,7 @@ package com.mycompany.carbootsale.db.dao;
 
 import com.mycompany.carbootsale.domain.Item;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface ItemDao {
@@ -15,7 +16,7 @@ public interface ItemDao {
 
     void addItem(Item item);
 
-    void deleteItem(Item item);
+    void deleteItem(int id);
 
     Item getItem(int id);
 

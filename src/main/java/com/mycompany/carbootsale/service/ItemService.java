@@ -16,7 +16,7 @@ public interface ItemService {
 
     void addItem(Item item);
 
-    Item removeItem(Item item) throws ItemNotFoundException;
+    void removeItem(int id) throws ItemNotFoundException;
 
     Item getItem(int id) throws ItemNotFoundException;
 
