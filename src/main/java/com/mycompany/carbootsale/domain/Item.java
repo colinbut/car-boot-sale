@@ -5,9 +5,10 @@
  */
 package com.mycompany.carbootsale.domain;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import java.util.Objects;
 
 public class Item {
 
@@ -44,18 +45,27 @@ public class Item {
         if (this == o) {
             return true;
         }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
+
         Item item = (Item) o;
-        return Double.compare(item.price, price) == 0
-            && Objects.equals(name, item.name)
-            && Objects.equals(description, item.description);
+
+        return new EqualsBuilder()
+            .append(price, item.price)
+            .append(name, item.name)
+            .append(description, item.description)
+            .isEquals();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, price);
+        return new HashCodeBuilder(17, 37)
+            .append(name)
+            .append(description)
+            .append(price)
+            .toHashCode();
     }
 
     @Override
@@ -66,4 +76,5 @@ public class Item {
             .append("price", price)
             .toString();
     }
+
 }
