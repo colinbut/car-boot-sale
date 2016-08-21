@@ -18,6 +18,6 @@ public interface ItemService {
 
     Item removeItem(Item item) throws ItemNotFoundException;
 
-    Item getItem(Item item) throws ItemNotFoundException;
+    Item getItem(int id) throws ItemNotFoundException;
 
 }

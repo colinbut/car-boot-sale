@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,10 +34,10 @@ public class ItemEndpoint {
     }
 
     @RequestMapping(path = "get/", method = RequestMethod.GET)
-    public ResponseEntity<Item> getItem(Item requestItem) {
+    public ResponseEntity<Item> getItem(@RequestParam("id") int id) {
         Item item = null;
         try {
-            item = itemService.getItem(requestItem);
+            item = itemService.getItem(id);
         } catch (ItemNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(item);
         }

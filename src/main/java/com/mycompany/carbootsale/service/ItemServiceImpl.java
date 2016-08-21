@@ -7,6 +7,7 @@ package com.mycompany.carbootsale.service;
 
 import com.mycompany.carbootsale.db.dao.ItemDao;
 import com.mycompany.carbootsale.domain.Item;
+import com.mycompany.carbootsale.exception.ItemNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,13 +30,13 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Item removeItem(Item item) {
+    public Item removeItem(Item item) throws ItemNotFoundException {
         throw new UnsupportedOperationException("Not Yet Implemented!");
     }
 
     @Override
-    public Item getItem(Item item) {
-        throw new UnsupportedOperationException("Not Yet Implemented!");
+    public Item getItem(int id) throws ItemNotFoundException {
+        return itemDao.getItem(id);
     }
 
 }
