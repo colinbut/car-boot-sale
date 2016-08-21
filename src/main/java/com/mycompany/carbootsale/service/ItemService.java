@@ -7,11 +7,9 @@ package com.mycompany.carbootsale.service;
 
 import com.mycompany.carbootsale.domain.Item;
 import com.mycompany.carbootsale.exception.ItemNotFoundException;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface ItemService {
 
     List<Item> listItems();
