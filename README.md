@@ -18,21 +18,21 @@ This is a very small application is an example that models a 'Car Boot Sale' pro
 
 ### Important Takeaways
 
-no web.xml required
+no `web.xml` required
 
 default uses Tomcat but can exclude this to use Jetty instead
 
-just slap on @SpringBootApplication annotation to Application main class
+just slap on `@SpringBootApplication` annotation to Application main class
 
-need quite a lot of maven configuration on the pom.xml or gradle configuration on the build.gradle
+need quite a lot of maven configuration on the `pom.xml` or gradle configuration on the `build.gradle`
 
 schema.sql file in root classpath (resources) and Spring Boot will automatically use to create database schema
 
 data.sql file in root classpath (resources) and Spring Boot will automatically use to initialize the database
 
-logging is automatically configured (no need for even a log4j.properties/log4j.xml confiiguration file)
+logging is automatically configured (no need for even a `log4j.properties`/`log4j.xml` confiiguration file)
 
-adding the spring-boot-starter-jdbc dependency will allow you to inject JdbcTemplate
+adding the `spring-boot-starter-jdbc dependency` will allow you to inject `JdbcTemplate`
 
-can add application.properties to resources which you can configure whole lots of properties from database to logging
+can add `application.properties` to resources which you can configure whole lots of properties from database to logging
 
