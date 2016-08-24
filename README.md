@@ -16,7 +16,9 @@ This is a very small application is an example that models a 'Car Boot Sale' pro
 - JUnit 4.12
 - Apache Commons Lang
 
-|Important Takeaways|
+
+### Important Takeaways
+||
 |:------------------|
 |no `web.xml` required|
 |default uses Tomcat but can exclude this to use Jetty instead|
