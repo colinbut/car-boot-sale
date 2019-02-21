@@ -60,18 +60,20 @@ public class ItemEndpoint {
     }
 
     @RequestMapping(path = "/add", method = RequestMethod.POST)
-    public void addItem(@RequestBody Item item) {
+    public ResponseEntity<Void> addItem(@RequestBody Item item) {
         LOGGER.error("Adding new item {}", item);
         itemService.addItem(item);
-        ResponseEntity.notFound().build();
+        return ResponseEntity.notFound().build();
     }
 
     @RequestMapping(path = "/remove", method = RequestMethod.DELETE)
-    public void removeItem(@RequestParam("id") int id) {
+    public ResponseEntity<Void> removeItem(@RequestParam("id") int id) {
         try {
             itemService.removeItem(id);
+            return ResponseEntity.noContent().build();
         } catch (ItemNotFoundException ex) {
             LOGGER.error("Trying to remove an item that is not there - {}", ex);
+            return ResponseEntity.notFound().build();
         }
     }
 
